@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Description from './Description';
 
 function App() {
+  const [title, setTitle] = useState('React App');
+  console.log('App component rendered');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <h1>{title}</h1>
+      <Description />
     </div>
   );
 }
